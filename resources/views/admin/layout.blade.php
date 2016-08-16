@@ -7,7 +7,8 @@
 
     <title>{{ config('blog.title') }} Admin</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    {{--<link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">--}}
+    <link href="/assets/css/admin.css" rel="stylesheet">
     @yield('styles')
 
         <!--[if lt IE 9]>
@@ -37,8 +38,9 @@
 
 @yield('content')
 
-<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+{{--<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>--}}
+{{--<script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>--}}
+<script src="/assets/js/admin.js"></script>
 
 @yield('scripts')
 
