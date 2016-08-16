@@ -28,7 +28,9 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectAfterLogout = '/login';
+    protected $redirectTo = '/admin/post
+   ';
 
     /**
      * Create a new authentication controller instance.
