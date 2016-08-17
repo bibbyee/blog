@@ -30,6 +30,12 @@ $router->group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::resource('admin/post', 'PostController');
     Route::resource('admin/tag', 'TagController');
     Route::get('admin/upload', 'UploadController@index');
+    Route::post('admin/upload/file', 'UploadController@uploadFile');
+    Route::delete('admin/upload/file', 'UploadController@deleteFile');
+    Route::post('admin/upload/folder', 'UploadController@createFolder');
+    Route::delete('admin/upload/folder', 'UploadController@deleteFolder');
+    //调试路由
+    Route::any('get','UploadController@get');
 });
 
 // Logging in and out
