@@ -17,3 +17,4 @@ class ExampleTest extends TestCase
              ->see('Laravel 5');
     }
 }
+//
