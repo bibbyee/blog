@@ -24,8 +24,18 @@ class UploadFileRequest extends Request
     public function rules()
     {
         return [
-            'file' => 'required',
+            'file' => 'required|min:1|max:2048',
             'folder' => 'required',
         ];
+    }
+
+    public function messages()
+    {
+        if ($_FILES['file']['error'] = 1)
+        {
+            return [
+                'file.required' => 'The file may not be greater than 2048 kilobytes.',
+            ];
+        }
     }
 }
