@@ -14,3 +14,29 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', function () {
+    return redirect('/blog');
+});
+
+Route::get('blog', 'BlogController@index');
+Route::get('blog/{slug}', 'BlogController@showPost');
+
+// Admin area
+Route::get('admin', function () {
+    return redirect('/admin/post');
+});
+$router->group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
+    Route::resource('admin/post', 'PostController', ['except' => 'show']);
+    Route::resource('admin/tag', 'TagController');
+    Route::get('admin/upload', 'UploadController@index');
+    Route::post('admin/upload/file', 'UploadController@uploadFile');
+    Route::delete('admin/upload/file', 'UploadController@deleteFile');
+    Route::post('admin/upload/folder', 'UploadController@createFolder');
+    Route::delete('admin/upload/folder', 'UploadController@deleteFolder');
+    //调试路由
+    Route::any('get','UploadController@get');
+});
+
+// Logging in and out
+Route::auth();
