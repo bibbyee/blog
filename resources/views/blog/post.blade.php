@@ -8,7 +8,12 @@
     <h1>{{ $post->title }}</h1>
     <h5>{{ $post->published_at }}</h5>
     <hr>
-    {!! nl2br(e($post->content)) !!}
+    @if($post->content_html)
+        <?php echo $post->content_html;?>
+    @else
+        {!! nl2br(e($post->content_raw)) !!}
+    @endif
+{{--    {!! nl2br(e($post->content_raw)) !!}--}}
     <hr>
     <button class="btn btn-primary" onclick="history.go(-1)">
         « Back
