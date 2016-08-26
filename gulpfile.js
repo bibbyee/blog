@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var elixir = require('laravel-elixir');
+var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
 
 /*
  |--------------------------------------------------------------------------
@@ -83,3 +85,19 @@ elixir(function(mix) {
     // 编译 Less
     mix.less('admin.less', 'public/assets/css/admin.css');
 });
+
+gulp.task("uglifyjs",function () {
+    gulp.src('public/assets/js/admin.js')
+        .pipe(uglify())
+        .pipe(rename({ extname: '.min.js' }))
+        .pipe(gulp.dest('public/assets/js/'));
+});
+
+gulp.task("minifycss",function () {
+    gulp.src('public/assets/css/admin.css')
+        .pipe(minifyCss())
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('public/assets/css/'));
+});
+
+gulp.task('default',['copyfiles','uglifyjs','minifycss'])
