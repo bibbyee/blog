@@ -68,6 +68,9 @@ gulp.task("copyfiles", function() {
     gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.time.js")
         .pipe(gulp.dest("public/assets/pickadate/"));
 
+    // Copy clean-blog less files
+    gulp.src("vendor/bower_dl/clean-blog/less/**")
+        .pipe(gulp.dest("resources/assets/less/clean-blog"));
 });
 
 elixir(function(mix) {
@@ -82,12 +85,27 @@ elixir(function(mix) {
         'resources/assets'
     );
 
+    mix.scripts([
+            'js/jquery.js',
+            'js/bootstrap.js',
+            'js/blog.js'
+        ],
+        'public/assets/js/blog.js',
+        'resources/assets'
+    );
+
     // 编译 Less
     mix.less('admin.less', 'public/assets/css/admin.css');
+    mix.less('blog.less', 'public/assets/css/blog.css');
 });
+
 
 gulp.task("uglifyjs",function () {
     gulp.src('public/assets/js/admin.js')
+        .pipe(uglify())
+        .pipe(rename({ extname: '.min.js' }))
+        .pipe(gulp.dest('public/assets/js/'));
+    gulp.src('public/assets/js/blog.js')
         .pipe(uglify())
         .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest('public/assets/js/'));
@@ -95,6 +113,10 @@ gulp.task("uglifyjs",function () {
 
 gulp.task("minifycss",function () {
     gulp.src('public/assets/css/admin.css')
+        .pipe(minifyCss())
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('public/assets/css/'));
+    gulp.src('public/assets/css/blog.css')
         .pipe(minifyCss())
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest('public/assets/css/'));
