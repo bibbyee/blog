@@ -38,5 +38,8 @@ $router->group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::any('get','UploadController@get');
 });
 
+Route::get('contact', 'ContactController@showForm');
+Route::post('contact', 'ContactController@sendContactInfo');
+
 // Logging in and out
 Route::auth();
