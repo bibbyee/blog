@@ -12,4 +12,5 @@ return [
         'storage' => 'local',
         'webpath' => '/uploads/',
     ],
+    'contact_email' => 'npower@vip.qq.com',
 ];
