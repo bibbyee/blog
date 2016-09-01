@@ -9,6 +9,7 @@ use App\Post;
 use App\Tag;
 use Carbon\Carbon;
 use App\Jobs\BlogIndexData;
+use App\Services\RssFeed;
 
 class BlogController extends Controller
 {
@@ -31,5 +32,13 @@ class BlogController extends Controller
         }
 
         return view($post->layout, compact('post', 'tag'));
+    }
+
+    public function rss(RssFeed $feed)
+    {
+        $rss = $feed->getRSS();
+
+        return response($rss)
+            ->header('Content-type', 'application/rss+xml');
     }
 }

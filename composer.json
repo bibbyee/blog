@@ -9,7 +9,9 @@
         "laravel/framework": "5.2.*",
         "dflydev/apache-mime-types": "^1.0",
         "doctrine/dbal": "^2.5",
-        "michelf/php-markdown": "^1.6"
+        "michelf/php-markdown": "^1.6",
+        "predis/predis": "^1.1",
+        "suin/php-rss-writer": "^1.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
