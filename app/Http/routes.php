@@ -40,6 +40,8 @@ $router->group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
 Route::get('contact', 'ContactController@showForm');
 Route::post('contact', 'ContactController@sendContactInfo');
+//Route::get('rss', 'BlogController@rss');
+Route::get('sitemap.xml', 'BlogController@siteMap');
 
 // Logging in and out
 Route::auth();

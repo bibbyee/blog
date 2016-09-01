@@ -13,4 +13,5 @@ return [
         'webpath' => '/uploads/',
     ],
     'contact_email' => 'npower@vip.qq.com',
+    'rss_size' => 25,
 ];
