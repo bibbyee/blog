@@ -7,4 +7,5 @@ Homestead.json
 /.idea
 /storage
 composer.lock
-/public/uploads
+/public/uploads/*
+!/public/uploads/bg_img
