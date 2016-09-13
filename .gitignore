@@ -8,4 +8,8 @@ Homestead.json
 /storage
 composer.lock
 /public/uploads/*
-!/public/uploads/bg_img
+!/public/uploads/about-bg.jpg
+!/public/uploads/contact-bg.jpg
+!/public/uploads/home-bg.jpg
+!/public/uploads/post-bg.jpg
+!/public/uploads/post-sample-image.jpg
