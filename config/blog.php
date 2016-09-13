@@ -10,7 +10,7 @@ return [
     'posts_per_page' => 5,
     'uploads' => [
         'storage' => 'local',
-        'webpath' => '/uploads/bg_img/',
+        'webpath' => '/uploads/',
     ],
     'contact_email' => 'npower@vip.qq.com',
     'rss_size' => 25,
