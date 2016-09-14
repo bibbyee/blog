@@ -1,27 +1,97 @@
-# Laravel PHP Framework
+# Laravel Blog
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Laravel5.2搭建的博客，参照学院[博客教程](http://laravelacademy.org/tutorials/blog)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## 主要功能
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- 博客首页
 
-## Official Documentation
+- 博文管理
+- 标签管理
+- 文件上传管理
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## 安装方法
 
-## Contributing
+- 复制 __.env.example__ 重命名为 __.env__ 并修改一下配置
+```
+APP_ENV=remote
+APP_DEBUG=false
+APP_URL=http://[Host URL]
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+DB_CONNECTION=mysql
+DB_HOST=[MySQL URL]
+DB_PORT=3306
+DB_DATABASE=blog
+DB_USERNAME=[Username]
+DB_PASSWORD=[Password]
+```
 
-## Security Vulnerabilities
+- 新建blog数据库
+```
+mysql -uroot -p[password]
+mysql>create database blog;
+mysql>grant all privileges on blog.* to root;
+mysql>flush privileges;
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- 修改文件读写权限
+```
+chmod 777 .env
+```
+```
+chmod -R 777 storage
+```
 
-## License
+- 更新依赖包
+```
+composer update --no-scripts
+```
+```
+npm update
+```
+```
+bower update
+  或
+bower update --allow-root
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- 重新生成key
+```
+php artisan key:generate
+```
+
+- 执行数据库迁移
+```
+php artisan migrate
+```
+
+- 生成随机数据
+```
+php artisan db:seed
+```
+
+- 添加用户信息
+```
+php artisan tinker
+>>>$user->name = 'admin'
+>>>$user->email = '[Your Email]'
+>>>$user->password = bcrypt('[Your Password]')
+>>>$user->save()
+>>>exit
+```
+
+## 示例地址
+
+[Demo](http://120.27.126.8/)
+
+## 参考环境
+
+Nginx 1.6.3
+
+Mysql 5.7.14
+
+PHP 7.0.10
+
+Node.js 5.12.0
+
+Laravel 5.2.45
