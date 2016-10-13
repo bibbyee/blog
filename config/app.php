@@ -156,6 +156,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Pulgin Providers..
+         */
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Germey\Geetest\GeetestServiceProvider::class,
+
     ],
 
     /*
@@ -204,6 +210,8 @@ return [
 
         //Laravel Debugbar
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        'Geetest' => Germey\Geetest\Geetest::class,
     ],
 
 ];
