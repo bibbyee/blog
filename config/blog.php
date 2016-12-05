@@ -3,7 +3,7 @@
 return [
     'name' => "Blog",
     'title' => "My Blog",
-    'subtitle' => 'http://120.27.126.8',
+    'subtitle' => 'http://blog.n:8001',
     'description' => 'A blog',
     'author' => 'bibbyee',
     'page_image' => 'home-bg.jpg',
